@@ -1,4 +1,4 @@
 package app.planet.core.constant;
 
-public class ReidsConstant {
+public class RedisConstant {
 }
