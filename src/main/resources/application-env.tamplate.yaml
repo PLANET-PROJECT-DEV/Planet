@@ -1,8 +1,8 @@
 server:
-  port: 9901
+  port: 8095
 spring:
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
+    driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/planet_project
     username: root
     password: root
@@ -22,9 +22,6 @@ spring:
             min-idle: 0
             time-between-eviction-runs: 10s
 mybatis:
-  configuration:
-    defaultEnumTypeHandler: org.apache.ibatis.type.EnumOrdinalTypeHandler
-    mapUnderscoreToCamelCase: true
+  mapper-localtions: classpath:/mapper/*.xml
+  map-underscore-to-camal-case: true
   typeAliasesPackage: app.planet.domain.model
-  mapperLocations: classpath:/mapper/*.xml
-
