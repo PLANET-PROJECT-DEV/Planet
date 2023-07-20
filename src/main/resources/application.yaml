@@ -2,25 +2,25 @@ server:
   port: 9901
 spring:
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/planet_project
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/planet_project?useSSL=false&serverTimezone=UTC
     username: root
     password: root
   messages:
     basename: messages.exception
-    jackson:
+  jackson:
       default-property-inclusion: non_null
-    data:
-      redis:
-        host: 192.168.198.128
-        port: 6379
-        password: bobo9778
-        lettuce:
-          pool:
-            max-active: 10
-            max-idle: 10
-            min-idle: 0
-            time-between-eviction-runs: 10s
+  data:
+    redis:
+      host: 192.168.198.128
+      port: 6379
+      password: bobo9778
+      lettuce:
+        pool:
+          max-active: 10
+          max-idle: 10
+          min-idle: 0
+          time-between-eviction-runs: 10s
 mybatis:
   configuration:
     defaultEnumTypeHandler: org.apache.ibatis.type.EnumOrdinalTypeHandler

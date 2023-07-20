@@ -21,4 +21,5 @@ public class Randoms {
     public static String aRandomSuffix() {
         return aRandomText(6);
     }
+
 }
