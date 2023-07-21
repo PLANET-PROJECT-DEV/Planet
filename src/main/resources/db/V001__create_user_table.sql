@@ -5,7 +5,7 @@ CREATE TABLE `user`
     `password`    varchar(128)    NULL     DEFAULT '',
     `nick_name`   varchar(32)     NULL     DEFAULT '',
     `icon`        varchar(255)    NULL     DEFAULT '',
-    `crony`        int(8) UNSIGNED NULL     DEFAULT 0,
+    `cronies`        int(8) UNSIGNED NULL     DEFAULT 0,
     `gender`      tinyint(1)      NULL     DEFAULT 0,
     `birthday`    date            NULL     DEFAULT NULL,
     `city`        varchar(64)     NULL     DEFAULT '',
