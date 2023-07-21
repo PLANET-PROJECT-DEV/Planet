@@ -2,7 +2,7 @@ server:
   port: 9901
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/planet_project?useSSL=false&serverTimezone=UTC
     username: root
     password: root
@@ -12,9 +12,9 @@ spring:
       default-property-inclusion: non_null
   data:
     redis:
-      host: 192.168.198.128
+      host: 192.168.198.146
       port: 6379
-      password: bobo9778
+      password: root
       lettuce:
         pool:
           max-active: 10
