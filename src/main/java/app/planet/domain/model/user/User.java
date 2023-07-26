@@ -22,7 +22,6 @@ public class User {
     @GeneratedValue(strategy = IDENTITY)
     @SuppressWarnings("unused")
     private Long userId;
-
     private String email;
     private String password;
     private String nickName;
