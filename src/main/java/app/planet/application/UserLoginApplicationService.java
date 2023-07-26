@@ -80,7 +80,7 @@ public class UserLoginApplicationService {
     //keypoint: 储存登录信息
     private UserLoginResult getUserLoginResult(User user) {
         String token = UUID.randomUUID().toString();
-        UserBasicCommand userBasicCommand = new UserBasicCommand(user.getId(), user.getNickName(), user.getIcon());
+        UserBasicCommand userBasicCommand = new UserBasicCommand(user.getUserId(), user.getNickName(), user.getIcon());
         // hashMap储存user信息
         Map<String, Object> userMap =  new HashMap<>();
         userMap.put("id",userBasicCommand.getId().toString());

@@ -10,6 +10,7 @@ import app.planet.domain.exception.InvalidUserInfoException;
 import app.planet.domain.exception.PasswordErrException;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 @RequestMapping("/user")
 public class UserCommandRestAPI {

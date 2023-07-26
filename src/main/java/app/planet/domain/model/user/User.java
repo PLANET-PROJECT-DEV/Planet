@@ -1,11 +1,14 @@
 package app.planet.domain.model.user;
 
 import app.planet.domain.exception.InvalidUserInfoException;
+import app.planet.domain.model.channel.Channel;
+import app.planet.domain.model.channel_mtm_user.ChannelMtmUser;
 import app.planet.utils.Randoms;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Table;
 
 import java.time.OffsetDateTime;
+import java.util.*;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 import static java.time.OffsetDateTime.now;
@@ -15,10 +18,10 @@ import static java.time.OffsetDateTime.now;
 @Table(appliesTo = "user")
 public class User {
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "user_id", nullable = false)
     @GeneratedValue(strategy = IDENTITY)
     @SuppressWarnings("unused")
-    private Long id;
+    private Long userId;
 
     private String email;
     private String password;
@@ -32,19 +35,10 @@ public class User {
     private String introduce;
     private OffsetDateTime createTime;
     private OffsetDateTime updateTime;
-
+    @OneToMany(mappedBy = "user")
+    private Set<ChannelMtmUser> channelMtmUsers;
     public static final String PASSWORD_REGEX = "^(?![a-zA-Z]+$)(?!\\d+$)(?![^\\da-zA-Z\s]+$).{6,12}$";
     public static final String NICKNAME_REGEX = "^[\\u4e00-\\u9fa5a-zA-Z0-9]{2,12}$";
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-
     public User() {
 
     }
@@ -70,7 +64,9 @@ public class User {
         this.updateTime = this.createTime;
     }
 
-
+    public Long getUserId() {
+        return userId;
+    }
     public String getEmail() {
         return email;
     }
