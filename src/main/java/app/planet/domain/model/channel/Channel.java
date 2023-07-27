@@ -1,29 +1,55 @@
 package app.planet.domain.model.channel;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import app.planet.domain.exception.InvalidChannelInfoInfoException;
+
+
+import app.planet.domain.model.channel_mtm_user.ChannelMtmUser;
+import app.planet.domain.model.user.User;
+import app.planet.utils.Randoms;
+import jakarta.persistence.*;
+import org.hibernate.annotations.Table;
+
+import java.time.OffsetDateTime;
+import java.util.HashSet;
+import java.util.Set;
+
+import static jakarta.persistence.GenerationType.IDENTITY;
+import static java.time.OffsetDateTime.now;
 
 @Entity
+@Table(appliesTo = "channel")
 public class Channel {
+
+
     @Id
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @Column(name = "channel_id", nullable = false)
+    @GeneratedValue(strategy = IDENTITY)
+    private Long channelId;
     private String channelName;
     private String channelNumber;
     private String channelType;
+    private Integer memberCount;
+    private OffsetDateTime createTime;
+    private OffsetDateTime updateTime;
+    @OneToMany(mappedBy = "channel")
+    private Set<ChannelMtmUser> channelMtmUsers;
 
     public Channel() {
     }
 
-    public Channel(String channelName, String channelNumber, String channelType) {
-        this.channelName = channelName;
-        this.channelNumber = channelNumber;
-        this.channelType = channelType;
+    public Channel(ChannelInfo channelInfo) throws InvalidChannelInfoInfoException {
+        if (!channelInfo.isValid()) {
+            throw new InvalidChannelInfoInfoException();
+        }
+        this.channelNumber = Randoms.aRandomText(8);
+        this.channelName=channelInfo.channelName();
+        this.channelType= channelInfo.channelType();
+        this.createTime = now();
+        this.updateTime = this.createTime;
     }
 
-
+    public Long getChannelId() {return channelId;}
     public String getChannelName() {
         return channelName;
     }
@@ -35,9 +61,4 @@ public class Channel {
     public String getChannelType() {
         return channelType;
     }
-
-    public Long getId() {
-        return id;
-    }
-
 }

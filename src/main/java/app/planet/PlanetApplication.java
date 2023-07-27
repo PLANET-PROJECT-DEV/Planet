@@ -10,4 +10,5 @@ public class PlanetApplication {
     public static void main(String[] args) {
         SpringApplication.run(PlanetApplication.class, args);
     }
+
 }
