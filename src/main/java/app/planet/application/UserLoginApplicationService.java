@@ -2,6 +2,7 @@ package app.planet.application;
 
 import app.planet.application.command.CreateUserCommand;
 import app.planet.application.command.LoginPasswordCommand;
+import app.planet.application.command.SendCodeCommand;
 import app.planet.application.command.UserBasicCommand;
 import app.planet.application.result.UserLoginResult;
 import app.planet.domain.Repository.UserRepository;
@@ -11,11 +12,14 @@ import app.planet.domain.exception.PasswordErrException;
 import app.planet.domain.model.user.User;
 import app.planet.domain.model.user.UserInfo;
 import app.planet.utils.Randoms;
+
 import jakarta.annotation.Resource;
+
 
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -53,11 +57,12 @@ public class UserLoginApplicationService {
 
 
     // keypoint: 邮箱发送登录验证码
-    public void sendCodeByEmail(String email) throws InvalidUserInfoException {
-        User user = new User(new UserInfo(email));
+    public void sendCodeByEmail(SendCodeCommand command) throws InvalidUserInfoException {
+        System.out.println(command.email());
+        User user = new User(new UserInfo(command.email()));
         String code = Randoms.aRandomSuffix();
-        stringRedisTemplate.opsForValue().set(LOGIN_CODE_KEY + email, code, LOGIN_CODE_TTL, MINUTES);
-        sendMail(email, LOGIN_CODE_MESSAGE + code + LOGIN_CODE_INFORMATION, LOGIN_CODE_TITLE);
+        stringRedisTemplate.opsForValue().set(LOGIN_CODE_KEY + command.email(), code, LOGIN_CODE_TTL, MINUTES);
+        sendMail(command.email(), LOGIN_CODE_MESSAGE + code + LOGIN_CODE_INFORMATION, LOGIN_CODE_TITLE);
     }
 
     //keypoint: 账号密码登录

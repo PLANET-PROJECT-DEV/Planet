@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: io.netty:netty-handler:4.1.90.Final">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../Maven/Maven-repo/io/netty/netty-handler/4.1.90.Final/netty-handler-4.1.90.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Maven/apache-maven-3.9.0-bin/apache-maven-3.9.0/repository/io/netty/netty-handler/4.1.90.Final/netty-handler-4.1.90.Final.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../../Maven/Maven-repo/io/netty/netty-handler/4.1.90.Final/netty-handler-4.1.90.Final-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Maven/apache-maven-3.9.0-bin/apache-maven-3.9.0/repository/io/netty/netty-handler/4.1.90.Final/netty-handler-4.1.90.Final-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$PROJECT_DIR$/../../Maven/Maven-repo/io/netty/netty-handler/4.1.90.Final/netty-handler-4.1.90.Final-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Maven/apache-maven-3.9.0-bin/apache-maven-3.9.0/repository/io/netty/netty-handler/4.1.90.Final/netty-handler-4.1.90.Final-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

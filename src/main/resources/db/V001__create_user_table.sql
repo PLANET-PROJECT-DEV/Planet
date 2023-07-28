@@ -1,6 +1,6 @@
 CREATE TABLE `user`
 (
-    `user_id`     bigint(20) PRIMARY KEY AUTO_INCREMENT,
+    `id`     bigint(20) PRIMARY KEY AUTO_INCREMENT,
     `email`       varchar(32)     NULL     DEFAULT '',
     `password`    varchar(128)    NULL     DEFAULT '',
     `nick_name`   varchar(32)     NULL     DEFAULT '',
