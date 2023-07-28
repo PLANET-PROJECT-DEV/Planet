@@ -8,9 +8,11 @@ public record ChannelInfo(
         String channelName
 ){
     public static final String Name_REGEX = "^.{2,12}$";
+
     public boolean isValid() {
         return isChannelTypeValid();
     }
+
     private boolean isChannelTypeValid() {
         return nonNull(this.channelType)&&Pattern.matches(Name_REGEX,channelName);
     }

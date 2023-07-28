@@ -17,9 +17,9 @@ spring:
       default-property-inclusion: non_null
   data:
     redis:
-      host: 192.168.23.128
+      host: 192.168.198.146
       port: 6379
-      password: lj123
+      password: root
       lettuce:
         pool:
           max-active: 10

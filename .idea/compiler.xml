@@ -7,18 +7,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Planet_project" />
-        <module name="test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Planet_project" target="16" />
-      <module name="test" target="17" />
+      <module name="Planet_project" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Planet_project" options="-parameters" />
-      <module name="test" options="-parameters" />
     </option>
   </component>
 </project>

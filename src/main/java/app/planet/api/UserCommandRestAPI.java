@@ -4,6 +4,7 @@ package app.planet.api;
 import app.planet.application.UserLoginApplicationService;
 import app.planet.application.command.CreateUserCommand;
 import app.planet.application.command.LoginPasswordCommand;
+import app.planet.application.command.SendCodeCommand;
 import app.planet.application.result.UserLoginResult;
 import app.planet.domain.exception.InvalidCodeException;
 import app.planet.domain.exception.InvalidUserInfoException;
@@ -33,8 +34,8 @@ public class UserCommandRestAPI {
     }
 
     @PostMapping("/code")
-    public void sendCode(@RequestParam("email") String email) throws InvalidUserInfoException {
-        userLoginApplicationService.sendCodeByEmail(email);
+    public void sendCode(@RequestBody SendCodeCommand command) throws InvalidUserInfoException {
+        userLoginApplicationService.sendCodeByEmail(command);
     }
 
     @PostMapping("/logout")
