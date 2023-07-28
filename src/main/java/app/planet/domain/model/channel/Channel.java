@@ -32,13 +32,15 @@ public class Channel {
             throw new InvalidChannelInfoInfoException();
         }
         this.channelNumber = Randoms.aRandomText(8);
-        this.channelName=channelInfo.channelName();
+        this.channelName= channelInfo.channelName();
         this.channelType= channelInfo.channelType();
+        this.memberCount= 0;
         this.createTime = now();
         this.updateTime = this.createTime;
     }
 
-    public Long getChannelId() {return Id;}
+    public Long getId() {return Id;}
+
     public String getChannelName() {
         return channelName;
     }
@@ -49,5 +51,17 @@ public class Channel {
 
     public String getChannelType() {
         return channelType;
+    }
+
+    public Integer getMemberCount() {
+        return memberCount;
+    }
+
+    public OffsetDateTime getCreateTime() {
+        return createTime;
+    }
+
+    public OffsetDateTime getUpdateTime() {
+        return updateTime;
     }
 }

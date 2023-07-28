@@ -14,6 +14,10 @@ public class Randoms {
         return stringBuilder.toString();
     }
 
+    public static String aRandomCoordinate(){
+        return aRandomText(2)+"."+aRandomText(2)+"."+aRandomText(2)+"."+aRandomText(2);
+    }
+
     public static Long aRandomId() {
         return RANDOM.nextLong();
     }
