@@ -16,7 +16,7 @@ public class Channel {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    private Long Id;
+    private Long id;
     private String channelName;
     private String channelNumber;
     private String channelType;
@@ -39,7 +39,7 @@ public class Channel {
         this.updateTime = this.createTime;
     }
 
-    public Long getId() {return Id;}
+    public Long getId() {return id;}
 
     public String getChannelName() {
         return channelName;

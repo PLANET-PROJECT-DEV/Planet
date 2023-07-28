@@ -13,7 +13,7 @@ public class Planet {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @SuppressWarnings("unused")
-    private Long Id;
+    private Long id;
     private Long MasterId;
     private Long ChannelId;
     private String Icon;
@@ -43,7 +43,7 @@ public class Planet {
         OTHER,GAME,MUSICIANS,MILITARY,SCIENCE
     }
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public Long getMasterId() {

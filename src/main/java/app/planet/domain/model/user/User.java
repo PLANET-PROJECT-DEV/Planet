@@ -15,7 +15,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @SuppressWarnings("unused")
-    private Long Id;
+    private Long id;
     private String email;
     private String password;
     private String nickName;
@@ -57,7 +57,7 @@ public class User {
     }
 
     public Long getUserId() {
-        return Id;
+        return id;
     }
     public String getEmail() {
         return email;
