@@ -18,7 +18,8 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 .excludePathPatterns(
                         "/user/code",
                         "/user/login",
-                        "/user/loginWithPassword"
+                        "/user/loginWithPassword",
+                        "/admin/common/upload"
                 ).order(1);
         registry.addInterceptor(new RefreshTokenInterceptor(stringRedisTemplate))
                 .addPathPatterns(
