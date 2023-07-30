@@ -9,6 +9,7 @@ import static app.planet.utils.Randoms.aRandomCoordinate;
 import static jakarta.persistence.GenerationType.IDENTITY;
 import static java.time.OffsetDateTime.now;
 
+@Entity
 public class Planet {
     @Id
     @GeneratedValue(strategy = IDENTITY)

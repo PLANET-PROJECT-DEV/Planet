@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class PlanetDataApplicationService {
 
     @Resource
-    private static PlanetRepository planetRepository;
+    private PlanetRepository planetRepository;
 
 
     //keypoint: 获取当前Planet用户数
