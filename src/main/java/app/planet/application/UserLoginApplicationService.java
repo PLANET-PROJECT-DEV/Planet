@@ -58,7 +58,6 @@ public class UserLoginApplicationService {
 
     // keypoint: 邮箱发送登录验证码
     public void sendCodeByEmail(SendCodeCommand command) throws InvalidUserInfoException {
-        System.out.println(command.email());
         User user = new User(new UserInfo(command.email()));
         String code = Randoms.aRandomSuffix();
         stringRedisTemplate.opsForValue().set(LOGIN_CODE_KEY + command.email(), code, LOGIN_CODE_TTL, MINUTES);

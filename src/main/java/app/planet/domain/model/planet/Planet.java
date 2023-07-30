@@ -9,6 +9,7 @@ import static app.planet.utils.Randoms.aRandomCoordinate;
 import static jakarta.persistence.GenerationType.IDENTITY;
 import static java.time.OffsetDateTime.now;
 
+@Entity
 public class Planet {
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -16,25 +17,27 @@ public class Planet {
     private Long id;
     private Long MasterId;
     private Long ChannelId;
+    private Integer users;
     private String Icon;
     private String Introduction;
     private String coordinate;
     private Type type;
-    private String authentication;
+    private Authentication authentication;
     private OffsetDateTime createTime;
     private OffsetDateTime updateTime;
 
     public Planet() {
     }
 
-    public Planet(Long masterId, Long channelId, String authentication) {
+    public Planet(Long masterId, Long channelId) {
         this.MasterId = masterId;
         this.ChannelId = channelId;
+        this.users=0;
         this.Icon = "icon.jpg";
         this.Introduction = "It's a planet";
         this.coordinate = aRandomCoordinate();
         this.type = Type.OTHER;
-        this.authentication = authentication;
+        this.authentication = Authentication.DEFAULT;
         this.createTime = now();
         this.updateTime = this.createTime;
     }
@@ -42,8 +45,17 @@ public class Planet {
     public enum Type{
         OTHER,GAME,MUSICIANS,MILITARY,SCIENCE
     }
+
+    public enum Authentication{
+        DEFAULT,PERSONAGE,FIRM
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public Integer getUsers() {
+        return users;
     }
 
     public Long getMasterId() {
@@ -70,7 +82,7 @@ public class Planet {
         return type;
     }
 
-    public String getAuthentication() {
+    public Authentication getAuthentication() {
         return authentication;
     }
 
