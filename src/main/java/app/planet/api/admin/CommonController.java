@@ -2,11 +2,9 @@ package app.planet.api.admin;
 
 import app.planet.application.result.UploadResult;
 import app.planet.core.constant.UploadConstant;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -20,7 +18,7 @@ import app.planet.utils.AliOssUtil;
 @Slf4j
 @RequestMapping("/admin/common")
 public class CommonController {
-    @Autowired
+    @Resource
     private AliOssUtil aliOssUtil;
 
     /**
@@ -46,6 +44,6 @@ public class CommonController {
             e.printStackTrace();
 
         }
-        return new UploadResult(UploadConstant.FAIL,UploadConstant.UPLOAD_FAIL);
+        return new UploadResult(UploadConstant.FAIL,"",UploadConstant.UPLOAD_FAIL);
     }
 }
