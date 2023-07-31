@@ -3,12 +3,13 @@ package app.planet.config.interceptor;
 import app.planet.core.rest.LoginInterceptor;
 import app.planet.core.rest.RefreshTokenInterceptor;
 import jakarta.annotation.Resource;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
-
+@Configuration
 public class InterceptorConfig implements WebMvcConfigurer {
     @Resource
     private StringRedisTemplate stringRedisTemplate;
