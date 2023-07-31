@@ -2,7 +2,6 @@ CREATE TABLE `planet`
 (
     `id`              bigint(20)      PRIMARY KEY AUTO_INCREMENT,
     `master_id`       bigint(20)      NOT NULL,
-    `channel_id`      bigint(20)      NOT NULL,
     `users`           int(10)         NULL DEFAULT 0,
     `type`            tinyint(1)      NULL     DEFAULT 0,
     `icon`            varchar(255)    NULL     DEFAULT '',

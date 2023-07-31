@@ -15,11 +15,10 @@ public class Planet {
     @GeneratedValue(strategy = IDENTITY)
     @SuppressWarnings("unused")
     private Long id;
-    private Long MasterId;
-    private Long ChannelId;
+    private Long masterId;
     private Integer users;
-    private String Icon;
-    private String Introduction;
+    private String icon;
+    private String introduction;
     private String coordinate;
     private Type type;
     private Authentication authentication;
@@ -29,12 +28,11 @@ public class Planet {
     public Planet() {
     }
 
-    public Planet(Long masterId, Long channelId) {
-        this.MasterId = masterId;
-        this.ChannelId = channelId;
+    public Planet(Long masterId) {
+        this.masterId = masterId;
         this.users=0;
-        this.Icon = "icon.jpg";
-        this.Introduction = "It's a planet";
+        this.icon = "icon.jpg";
+        this.introduction = "It's a planet";
         this.coordinate = aRandomCoordinate();
         this.type = Type.OTHER;
         this.authentication = Authentication.DEFAULT;
@@ -59,19 +57,15 @@ public class Planet {
     }
 
     public Long getMasterId() {
-        return MasterId;
-    }
-
-    public Long getChannelId() {
-        return ChannelId;
+        return masterId;
     }
 
     public String getIcon() {
-        return Icon;
+        return icon;
     }
 
     public String getIntroduction() {
-        return Introduction;
+        return introduction;
     }
 
     public String getCoordinate() {

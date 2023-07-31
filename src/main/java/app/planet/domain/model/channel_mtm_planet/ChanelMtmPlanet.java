@@ -1,6 +1,9 @@
-package app.planet.domain.model.channel_mtm_user;
+package app.planet.domain.model.channel_mtm_planet;
 
-import jakarta.persistence.*;
+import app.planet.domain.model.channel_mtm_user.ChannelMtmUser;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 import java.time.OffsetDateTime;
 
@@ -8,46 +11,35 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 import static java.time.OffsetDateTime.now;
 
 @Entity
-public class ChannelMtmUser {
+public class ChanelMtmPlanet {
     @Id
     @GeneratedValue(strategy = IDENTITY)
-    @SuppressWarnings("unused")
     private Long id;
-    private Long userId;
+    private Long planetId;
     private Long channelId;
-    private Role role;
     private OffsetDateTime createTime;
     private OffsetDateTime updateTime;
 
-    public ChannelMtmUser() {
+    public ChanelMtmPlanet() {
     }
 
-    public ChannelMtmUser(Long userId, Long channelId) {
-        this.userId = userId;
+    public ChanelMtmPlanet(Long planetId, Long channelId) {
+        this.planetId = planetId;
         this.channelId = channelId;
-        this.role = Role.NORMAL;
         this.createTime = now();
         this.updateTime = this.createTime;
-    }
-
-    public enum Role {
-        NORMAL,BAN,ADMIN
     }
 
     public Long getId() {
         return id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getPlanetId() {
+        return planetId;
     }
 
     public Long getChannelId() {
         return channelId;
-    }
-
-    public Role getRole() {
-        return role;
     }
 
     public OffsetDateTime getCreateTime() {
@@ -57,5 +49,4 @@ public class ChannelMtmUser {
     public OffsetDateTime getUpdateTime() {
         return updateTime;
     }
-
 }
