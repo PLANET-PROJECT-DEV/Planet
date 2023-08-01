@@ -5,11 +5,13 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/planet_project?useSSL=false&serverTimezone=UTC
     username: root
-    password: root
+    password: qwe123456
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: update
+
+
 
   messages:
     basename: messages.exception
@@ -17,9 +19,8 @@ spring:
       default-property-inclusion: non_null
   data:
     redis:
-      host: 192.168.198.146
+      host: localhost
       port: 6379
-      password: root
       lettuce:
         pool:
           max-active: 10
@@ -32,4 +33,11 @@ mybatis:
     mapUnderscoreToCamelCase: true
   typeAliasesPackage: app.planet.domain.model
   mapperLocations: classpath:/mapper/*.xml
+
+planet:
+  alioss:
+    endpoint: oss-cn-hangzhou.aliyuncs.com
+    access-key-id: LTAI5t6UNSP2zNCDZ89r53Xx
+    access-key-secret: iib2rNO3SFprXrXvORppwEqE2VBJDE
+    bucket-name: planet-file
 
