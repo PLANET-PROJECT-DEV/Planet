@@ -1,4 +1,4 @@
-package app.planet.application.command;
+package app.planet.application.command.user;
 
 public record LoginPasswordCommand(
         String email,

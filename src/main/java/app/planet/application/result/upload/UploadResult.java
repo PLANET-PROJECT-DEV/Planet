@@ -1,4 +1,4 @@
-package app.planet.application.result;
+package app.planet.application.result.upload;
 
 public record UploadResult (
         Integer code,

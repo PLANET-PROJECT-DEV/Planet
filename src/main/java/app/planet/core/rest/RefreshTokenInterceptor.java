@@ -1,7 +1,7 @@
 package app.planet.core.rest;
 
 
-import app.planet.application.command.UserBasicCommand;
+import app.planet.application.command.user.UserBasicCommand;
 import app.planet.core.context.UserHolder;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

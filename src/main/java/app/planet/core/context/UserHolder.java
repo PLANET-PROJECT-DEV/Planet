@@ -1,6 +1,6 @@
 package app.planet.core.context;
 
-import app.planet.application.command.UserBasicCommand;
+import app.planet.application.command.user.UserBasicCommand;
 
 public class UserHolder {
     private static final ThreadLocal<UserBasicCommand> tl = new ThreadLocal<>();

@@ -9,7 +9,7 @@ public interface PlanetMtmUserRepository extends JpaRepository<PlanetMtmUser,Lon
 
     @Query(nativeQuery = true,value = "select count(*) from planet_mtm_user " +
             "where update_time < :anyDay AND planet_id=:planetId group by planet_id")
-    Integer findUsersAnyDay(@Param("planetId") Long planetId ,@Param("anyDay") String anyDay);
+    Integer findUsersAnyDay(@Param("planetId") Long planetId ,@Param("anyDay") Integer anyDay);
 
     @Query(nativeQuery = true,value = "select count(*) from planet_mtm_user " +
             "where update_time < current_date AND planet_id=:planetId group by planet_id")

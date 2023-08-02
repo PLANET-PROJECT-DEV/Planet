@@ -2,10 +2,10 @@ package app.planet.api;
 
 
 import app.planet.application.UserLoginApplicationService;
-import app.planet.application.command.CreateUserCommand;
-import app.planet.application.command.LoginPasswordCommand;
-import app.planet.application.command.SendCodeCommand;
-import app.planet.application.result.UserLoginResult;
+import app.planet.application.command.user.CreateUserCommand;
+import app.planet.application.command.user.LoginPasswordCommand;
+import app.planet.application.command.user.SendCodeCommand;
+import app.planet.application.result.user.UserLoginResult;
 import app.planet.domain.exception.InvalidCodeException;
 import app.planet.domain.exception.InvalidUserInfoException;
 import app.planet.domain.exception.PasswordErrException;

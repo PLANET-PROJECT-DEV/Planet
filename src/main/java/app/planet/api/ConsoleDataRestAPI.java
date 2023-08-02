@@ -2,10 +2,13 @@ package app.planet.api;
 
 
 import app.planet.application.PlanetDataApplicationService;
-import app.planet.application.result.GetPlanetUsersResult;
+import app.planet.application.command.planet.GetPlantUsersLatelyCommand;
+import app.planet.application.result.planet.GetPlanetNewUsersResult;
+import app.planet.application.result.planet.GetPlanetUsersLatelyResult;
+import app.planet.application.result.planet.GetPlanetUsersResult;
 import app.planet.domain.exception.PlanetNotFoundException;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,8 +21,18 @@ public class ConsoleDataRestAPI {
         this.planetDataApplicationService = planetDataApplicationService;
     }
 
-    @PostMapping("/planet")
-    public GetPlanetUsersResult getPlanetUsersResult() throws PlanetNotFoundException {
-        return planetDataApplicationService.getPlanetUsersResult();
+    @PostMapping("/users")
+    public GetPlanetUsersResult getPlanetUsers() throws PlanetNotFoundException {
+        return planetDataApplicationService.getPlanetUsers();
+    }
+
+    @PostMapping("/usersAgo")
+    public GetPlanetUsersLatelyResult getPlanetUsersLately(@RequestBody GetPlantUsersLatelyCommand getPlantUsersLatelyCommand) throws PlanetNotFoundException {
+        return planetDataApplicationService.getPlanetUsersLatelyResult(getPlantUsersLatelyCommand.daysAgo());
+    }
+
+    @PostMapping("/newUsers")
+    public GetPlanetNewUsersResult getPlanetNewUsers() throws PlanetNotFoundException {
+        return planetDataApplicationService.getPlanetNewUsers();
     }
 }
