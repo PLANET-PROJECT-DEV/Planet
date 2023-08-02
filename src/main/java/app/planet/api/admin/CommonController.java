@@ -1,6 +1,6 @@
 package app.planet.api.admin;
 
-import app.planet.application.result.UploadResult;
+import app.planet.application.result.upload.UploadResult;
 import app.planet.core.constant.UploadConstant;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
