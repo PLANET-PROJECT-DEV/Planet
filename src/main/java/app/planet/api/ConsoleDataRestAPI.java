@@ -7,10 +7,10 @@ import app.planet.application.result.planet.GetPlanetNewUsersResult;
 import app.planet.application.result.planet.GetPlanetUsersLatelyResult;
 import app.planet.application.result.planet.GetPlanetUsersResult;
 import app.planet.domain.exception.PlanetNotFoundException;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/console")
@@ -34,5 +34,13 @@ public class ConsoleDataRestAPI {
     @PostMapping("/newUsers")
     public GetPlanetNewUsersResult getPlanetNewUsers() throws PlanetNotFoundException {
         return planetDataApplicationService.getPlanetNewUsers();
+    }
+
+    @PostMapping("/headers")
+    public void listHeaders(
+            @RequestHeader Map<String,String> headers
+    ) {headers.forEach((key,value)->{
+        System.out.println(key+":"+value);
+    });
     }
 }

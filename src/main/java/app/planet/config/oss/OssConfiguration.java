@@ -1,4 +1,4 @@
-package app.planet.config.cors;
+package app.planet.config.oss;
 
 
 

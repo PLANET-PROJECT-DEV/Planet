@@ -20,10 +20,17 @@ public class InterceptorConfig implements WebMvcConfigurer {
                         "/user/code",
                         "/user/login",
                         "/user/loginWithPassword",
+                        "/console/headers",
                         "/admin/common/upload",
                         "/websocket/**"
                 ).order(1);
         registry.addInterceptor(new RefreshTokenInterceptor(stringRedisTemplate))
+                .excludePathPatterns(
+                        "/user/code",
+                        "/user/login",
+                        "/user/loginWithPassword",
+                        "/console/headers"
+                )
                 .addPathPatterns(
                         "/**"
                 ).order(0);
