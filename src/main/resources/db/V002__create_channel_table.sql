@@ -6,4 +6,4 @@ CREATE TABLE `channel`
     `channel_type`    varchar(32)     null     DEFAULT '',
     `create_time`     datetime        NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `update_time`     datetime        NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
+)AUTO_INCREMENT=10000000000;

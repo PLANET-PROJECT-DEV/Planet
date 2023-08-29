@@ -18,7 +18,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="Planet_project" value="1cb445cd-857e-43e0-a599-d144167724c1" />
+          <factory-entry name="Planet_project" value="1056d600-ea68-45ff-a624-bc385a0870e5" />
         </datasource-mapping>
         <naming-strategy-map>
           <unit-entry name="Planet_project" />
