@@ -1,4 +1,4 @@
-package app.planet.api;
+package app.planet.api.console;
 
 
 import app.planet.application.PlanetDataApplicationService;

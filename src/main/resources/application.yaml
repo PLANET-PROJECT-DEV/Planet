@@ -41,4 +41,8 @@ planet:
     access-key-id: LTAI5t6UNSP2zNCDZ89r53Xx
     access-key-secret: iib2rNO3SFprXrXvORppwEqE2VBJDE
     bucket-name: planet-file
+netty:
+  server:
+    port: 9902
+
 

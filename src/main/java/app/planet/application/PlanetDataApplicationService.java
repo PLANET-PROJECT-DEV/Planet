@@ -26,6 +26,7 @@ public class PlanetDataApplicationService {
     public GetPlanetUsersResult getPlanetUsers() throws PlanetNotFoundException {
         Planet planet = getPlanet();
         Integer users = planet.getUsers();
+        System.out.println(users);
         Integer usersYesterday = planetMtmUserRepository.findUsersYesterday(planet.getId());
         if (usersYesterday==0){
             return new GetPlanetUsersResult(users,0.00);
@@ -42,13 +43,23 @@ public class PlanetDataApplicationService {
     public GetPlanetNewUsersResult getPlanetNewUsers() throws PlanetNotFoundException {
         Planet planet = getPlanet();
         Integer users = planet.getUsers();
-        Integer usersYesterday = planetMtmUserRepository.findUsersYesterday(planet.getId());
-        Integer usersBeforeYesterday = planetMtmUserRepository.findUsersAnyDay(planet.getId(), 2);
-        if (usersYesterday-usersBeforeYesterday==0){
-            return new GetPlanetNewUsersResult(users,0.00);
+        Integer usersYesterday;
+        Integer usersBeforeYesterday;
+        if (planetMtmUserRepository.findUsersAnyDay(planet.getId(), 2) == null) {
+            usersBeforeYesterday = 0;
+        } else {
+            usersBeforeYesterday = planetMtmUserRepository.findUsersAnyDay(planet.getId(), 2);
         }
-        Double amplify = ((users-usersYesterday)-(usersYesterday-usersBeforeYesterday))*1.00/(usersYesterday-usersBeforeYesterday);
-        return new GetPlanetNewUsersResult(users-usersYesterday,amplify);
+        if (planetMtmUserRepository.findUsersYesterday(planet.getId()) == null) {
+            usersYesterday = 0;
+        } else {
+            usersYesterday = planetMtmUserRepository.findUsersYesterday(planet.getId());
+        }
+        if (usersYesterday - usersBeforeYesterday == 0) {
+            return new GetPlanetNewUsersResult(users, 0.00);
+        }
+        Double amplify = ((users - usersYesterday) - (usersYesterday - usersBeforeYesterday)) * 1.00 / (usersYesterday - usersBeforeYesterday);
+        return new GetPlanetNewUsersResult(users - usersYesterday, amplify);
     }
     //keypoint: 获取当前master账户下的planet
     private Planet getPlanet() throws PlanetNotFoundException {

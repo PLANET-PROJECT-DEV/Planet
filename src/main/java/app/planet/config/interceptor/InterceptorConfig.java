@@ -22,14 +22,19 @@ public class InterceptorConfig implements WebMvcConfigurer {
                         "/user/loginWithPassword",
                         "/console/headers",
                         "/admin/common/upload",
-                        "/websocket/**"
+                        "/ws",
+                        "/chat/messageRecord",
+                        "/chat/**"
                 ).order(1);
         registry.addInterceptor(new RefreshTokenInterceptor(stringRedisTemplate))
                 .excludePathPatterns(
                         "/user/code",
                         "/user/login",
                         "/user/loginWithPassword",
-                        "/console/headers"
+                        "/console/headers",
+                        "/ws",
+                        "/chat/messageRecord",
+                        "/chat/**"
                 )
                 .addPathPatterns(
                         "/**"

@@ -1,4 +1,4 @@
-package app.planet.api;
+package app.planet.api.user;
 
 
 import app.planet.application.UserLoginApplicationService;
